@@ -55,6 +55,10 @@ export default function CyberLecture1() {
                 والهجمات وأنواع التهديدات في عرض موجه واحد.
               </span>
             </p>
+            <p className="font-code text-xs font-semibold text-stone-500 dark:text-stone-400 mt-3">
+              <span className="en-text">Dr. Hayman El-sayed · 1st level · 1st semester</span>
+              <span className="ar-text">د. هيمان السيد · المستوى الأول · الفصل الأول</span>
+            </p>
             <div className="mt-6">
               <ScrollToButton
                 targetId="chapter"
@@ -331,6 +335,21 @@ export default function CyberLecture1() {
                 وسرية موارد نظم المعلومات.
               </span>
             </blockquote>
+            <p className="mt-3 flex flex-wrap gap-2 text-xs font-semibold">
+              {[
+                { en: "Integrity → hashing", ar: "السلامة ← التجزئة" },
+                { en: "Availability → data and services", ar: "التوافر ← البيانات والخدمات" },
+                { en: "Confidentiality → encryption", ar: "السرية ← التشفير" },
+              ].map((m) => (
+                <span
+                  key={m.en}
+                  className="rounded-full border border-stone-200 dark:border-white/10 bg-stone-900/[.04] dark:bg-black/30 px-3 py-1"
+                >
+                  <span className="en-text">{m.en}</span>
+                  <span className="ar-text">{m.ar}</span>
+                </span>
+              ))}
+            </p>
             <div className="mt-4 grid grid-cols-1 sm:grid-cols-3 gap-2.5 text-sm">
               <div className="rounded-xl border border-stone-200 dark:border-white/10 p-3">
                 <p className="font-extrabold en-text">Security attack</p>
@@ -356,11 +375,12 @@ export default function CyberLecture1() {
                 <p className="font-extrabold en-text">Security service</p>
                 <p className="font-extrabold ar-text">الخدمة الأمنية</p>
                 <p className="text-stone-600 dark:text-stone-300 en-text">
-                  A processing or communication service that strengthens system
-                  and transfer security.
+                  A processing or communication service that enhances the security
+                  of data processing systems and information transfers.
                 </p>
                 <p className="text-stone-600 dark:text-stone-300 ar-text">
-                  خدمة معالجة أو اتصال تعزز أمن الأنظمة ونقل المعلومات.
+                  خدمة معالجة أو اتصال تعزز أمن أنظمة معالجة البيانات ونقل
+                  المعلومات.
                 </p>
               </div>
             </div>
@@ -422,11 +442,12 @@ export default function CyberLecture1() {
               </h4>
               <p className="text-sm text-stone-600 dark:text-stone-300 mt-1">
                 <span className="en-text">
-                  Unauthorized reading. No data is altered, so they are very
-                  difficult to detect.
+                  Unauthorized reading of a message and traffic analysis. No data
+                  is altered, so they are very difficult to detect.
                 </span>
                 <span className="ar-text">
-                  قراءة غير مصرح بها. لا تُغيَّر البيانات لذا يصعب كشفها جدًا.
+                  قراءة غير مصرح بها للرسالة وتحليل الحركة. لا تُغيَّر البيانات لذا
+                  يصعب كشفها جدًا.
                 </span>
               </p>
               <ul className="mt-3 space-y-2.5 text-sm">
@@ -436,6 +457,12 @@ export default function CyberLecture1() {
                   </p>
                   <p className="font-extrabold ar-text">
                     النوع ١: كشف محتوى الرسالة
+                  </p>
+                  <p className="text-stone-600 dark:text-stone-300 en-text">
+                    The opponent reads the contents of the message.
+                  </p>
+                  <p className="text-stone-600 dark:text-stone-300 ar-text">
+                    يقرأ الخصم محتوى الرسالة.
                   </p>
                 </li>
                 <li className="rounded-xl border border-stone-200 dark:border-white/10 p-3">
@@ -457,10 +484,12 @@ export default function CyberLecture1() {
               </h4>
               <p className="text-sm text-stone-600 dark:text-stone-300 mt-1">
                 <span className="en-text">
-                  Transmitted data is modified or false data is created.
+                  Modification of messages or files, and denial of service. Data
+                  that is transmitted gets modified, or false data is created.
                 </span>
                 <span className="ar-text">
-                  تُعدَّل البيانات المرسلة أو تُنشأ بيانات مزيفة.
+                  تعديل الرسائل أو الملفات والحرمان من الخدمة. تُعدَّل البيانات
+                  المرسلة أو تُنشأ بيانات مزيفة.
                 </span>
               </p>
               <ul className="mt-3 space-y-2.5 text-sm">
@@ -940,6 +969,120 @@ export default function CyberLecture1() {
               </span>
             </p>
             <SocTerminal />
+          </section>
+          </Reveal>
+
+          {/* Full chapter recap — every topic on one screen */}
+          <Reveal>
+          <section
+            aria-labelledby="recapTitle"
+            className="mt-6 rounded-2xl border border-stone-200 dark:border-white/10 bg-white dark:bg-[#1a1815] p-5 sm:p-6 shadow-soft"
+          >
+            <h4 id="recapTitle" className="text-xl font-extrabold">
+              <span className="en-text">Chapter recap: all five topics</span>
+              <span className="ar-text">ملخص الفصل: الموضوعات الخمسة</span>
+            </h4>
+            <p className="text-sm text-stone-600 dark:text-stone-300 mt-1">
+              <span className="en-text">
+                Everything Chapter One asks you to know, on one screen. Use it
+                for revision before the quiz.
+              </span>
+              <span className="ar-text">
+                كل ما يطلب منك الفصل الأول معرفته في شاشة واحدة. استخدمه للمراجعة
+                قبل الاختبار.
+              </span>
+            </p>
+            <ol className="mt-4 grid grid-cols-1 md:grid-cols-2 gap-2.5 text-sm">
+              <li className="rounded-xl border border-stone-200 dark:border-white/10 p-3">
+                <p className="font-extrabold">
+                  <span className="en-text">1. Introduction to security</span>
+                  <span className="ar-text">١. مقدمة في الأمن</span>
+                </p>
+                <p className="text-stone-600 dark:text-stone-300 en-text">
+                  Computer security protects a system to attain integrity
+                  (hashing), availability (data and services) and confidentiality
+                  (encryption). Attack endangers security; mechanism detects,
+                  prevents or recovers; service strengthens processing and
+                  transfer. Threat is potential, attack is actual. Passive
+                  attacks read traffic; active attacks masquerade, replay,
+                  modify or deny service. The network security model needs four
+                  design tasks: algorithm, secret, distribution methods,
+                  protocol.
+                </p>
+                <p className="text-stone-600 dark:text-stone-300 ar-text">
+                  أمن الحاسوب يحمي النظام لتحقيق السلامة (التجزئة) والتوافر
+                  (البيانات والخدمات) والسرية (التشفير). الهجوم يعرّض الأمن
+                  للخطر، والآلية تكشف أو تمنع أو تتعافى، والخدمة تعزز المعالجة
+                  والنقل. التهديد احتمال والهجوم واقع. الهجمات السلبية تقرأ
+                  الحركة، والنشطة تنتحل وتعيد وتعدل أو تحرم من الخدمة. نموذج أمن
+                  الشبكة يحتاج أربع مهام: خوارزمية وسر وتوزيع وبروتوكول.
+                </p>
+              </li>
+              <li className="rounded-xl border border-stone-200 dark:border-white/10 p-3">
+                <p className="font-extrabold">
+                  <span className="en-text">2. Cyber security</span>
+                  <span className="ar-text">٢. الأمن السيبراني</span>
+                </p>
+                <p className="text-stone-600 dark:text-stone-300 en-text">
+                  Defending computers, servers, mobile devices, electronic
+                  systems, networks and data from malicious attacks. Also called
+                  IT security or electronic information security.
+                </p>
+                <p className="text-stone-600 dark:text-stone-300 ar-text">
+                  الدفاع عن الحواسيب والخوادم والأجهزة المحمولة والأنظمة
+                  الإلكترونية والشبكات والبيانات ضد الهجمات الخبيثة. ويسمى أمن
+                  تكنولوجيا المعلومات أو أمن المعلومات الإلكترونية.
+                </p>
+              </li>
+              <li className="rounded-xl border border-stone-200 dark:border-white/10 p-3">
+                <p className="font-extrabold">
+                  <span className="en-text">3. Six categories</span>
+                  <span className="ar-text">٣. التصنيفات الستة</span>
+                </p>
+                <p className="text-stone-600 dark:text-stone-300 en-text">
+                  Network, application, information, operational security,
+                  disaster recovery and business continuity, and end-user
+                  education.
+                </p>
+                <p className="text-stone-600 dark:text-stone-300 ar-text">
+                  أمن الشبكات والتطبيقات والمعلومات والعمليات والتعافي من
+                  الكوارث واستمرارية الأعمال وتوعية المستخدم النهائي.
+                </p>
+              </li>
+              <li className="rounded-xl border border-stone-200 dark:border-white/10 p-3">
+                <p className="font-extrabold">
+                  <span className="en-text">4. Importance</span>
+                  <span className="ar-text">٤. الأهمية</span>
+                </p>
+                <p className="text-stone-600 dark:text-stone-300 en-text">
+                  Attacks affect all people, fast technology change fuels more
+                  attacks, businesses and jobs are damaged, individuals face
+                  direct threats, and concern drives regulation.
+                </p>
+                <p className="text-stone-600 dark:text-stone-300 ar-text">
+                  الهجمات تصيب الجميع، والتغير التقني السريع يضاعفها، وتتضرر
+                  الشركات والوظائف، ويواجه الأفراد تهديدات مباشرة، والقلق يدفع
+                  إلى التنظيم.
+                </p>
+              </li>
+              <li className="rounded-xl border border-stone-200 dark:border-white/10 p-3 md:col-span-2">
+                <p className="font-extrabold">
+                  <span className="en-text">5. Three types of cyber threats</span>
+                  <span className="ar-text">٥. أنواع التهديدات الثلاثة</span>
+                </p>
+                <p className="text-stone-600 dark:text-stone-300 en-text">
+                  Cybercrime: single actors or groups seeking financial gain or
+                  disruption. Cyber-attack: politically motivated information
+                  gathering. Cyberterrorism: undermining electronic systems to
+                  cause panic or fear.
+                </p>
+                <p className="text-stone-600 dark:text-stone-300 ar-text">
+                  الجرائم الإلكترونية: أفراد أو جماعات يطلبون مكسبًا ماليًا أو
+                  تعطيلًا. الهجوم السيبراني: جمع معلومات بدوافع سياسية. الإرهاب
+                  السيبراني: تقويض الأنظمة الإلكترونية لبث الذعر أو الخوف.
+                </p>
+              </li>
+            </ol>
           </section>
           </Reveal>
 

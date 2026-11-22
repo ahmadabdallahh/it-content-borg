@@ -31,8 +31,8 @@ export const CIA: CiaItem[] = [
     letter: "A",
     t_en: "Availability",
     t_ar: "التوافر",
-    b_en: "Systems work on time and services reach authorized users whenever needed. Denial-of-service attacks target exactly this pillar.",
-    b_ar: "تعمل الأنظمة في وقتها وتصل الخدمات للمستخدمين المصرح لهم عند الحاجة. هجمات الحرمان من الخدمة تستهدف هذه الركيزة بالذات.",
+    b_en: 'Systems work on time and services reach authorized users whenever needed — availability covers <b>data and services</b>. Denial-of-service attacks target exactly this pillar.',
+    b_ar: 'تعمل الأنظمة في وقتها وتصل الخدمات للمستخدمين المصرح لهم عند الحاجة — والتوافر يخص <b>البيانات والخدمات</b>. هجمات الحرمان من الخدمة تستهدف هذه الركيزة بالذات.',
   },
 ];
 

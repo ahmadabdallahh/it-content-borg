@@ -38,7 +38,10 @@ export const SLIDES: Slide[] = [
 
     bg: "https://thumb.wikimedia.org/wikipedia/commons/thumb/f/f2/Closeup-photography-of-white-gate-with-brass-colored-padlock-846288.jpg/960px-Closeup-photography-of-white-gate-with-brass-colored-padlock-846288.jpg",
     alt: "Brass padlock locking a metal gate",
-    p: [["1st Level, 1st Semester", "المستوى الأول، الفصل الأول"]],
+    p: [
+      ["1st Level, 1st Semester", "المستوى الأول، الفصل الأول"],
+      ["Dr. Hayman El-sayed", "د. هيمان السيد"],
+    ],
     x: [X_00_EN, X_00_AR],
   },
   {
@@ -250,6 +253,10 @@ export const SLIDES: Slide[] = [
       [
         "Type 4, denial of service: disable or overload the network.",
         "النوع 4، الحرمان من الخدمة: تعطيل الشبكة أو إغراقها.",
+      ],
+      [
+        "Active means transmitted data is modified or false data is created.",
+        "النشط يعني تعديل البيانات المرسلة أو إنشاء بيانات مزيفة.",
       ],
     ],
     x: [X_14_EN, X_14_AR],
