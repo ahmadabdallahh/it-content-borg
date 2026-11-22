@@ -1,0 +1,56 @@
+/*
+  Per-slide real-world notes (original order matters: two splices preserved).
+  Declared first because SLIDES references them at module init.
+*/
+export const X_00_EN = "Universities publish slides online that only enrolled students can open: confidentiality deciding who sees what.";
+export const X_00_AR = "الجامعات تنشر الشرائح online ولا يفتحها إلا الطلاب المسجلون: السرية تحدد من يرى ماذا.";
+export const X_01_EN = "Fifty marks split across three assessments, so one bad day cannot sink you.";
+export const X_01_AR = "خمسون درجة موزعة على ثلاثة تقييمات فلا يضيعك يوم سيئ واحد.";
+export const X_02_EN = "Chapter 2 answers the question this chapter raises: how do we actually scramble a message?";
+export const X_02_AR = "الفصل الثاني يجيب عن سؤال يطرحه هذا الفصل: كيف نشفر رسالة فعلا؟";
+export const X_03_EN = "By the end of this chapter you will classify any incident as passive or active within seconds.";
+export const X_03_AR = "بنهاية هذا الفصل ستصنف أي حادثة سلبية أم نشطة في ثوان.";
+export const X_04_EN = "When you log in to your bank, encryption, password checks, and uptime guarantees all work at once.";
+export const X_04_AR = "عند دخولك حسابك البنكي يعمل التشفير والتحقق من كلمتك وتوافر الخدمة معا.";
+export const X_05_EN = "Chat apps with end-to-end encryption, download checks in app stores, networks that survive exam week.";
+export const X_05_AR = "تطبيقات محادثة بتشفير كامل وفحص التنزيلات وشبكات تصمد في أسبوع الامتحانات.";
+export const X_06_EN = "Draw it in the exam: a triangle with three labels and Security Goals in the center.";
+export const X_06_AR = "ارسمه في الامتحان: مثلث وثلاث تسميات وفي الوسط أهداف الأمن.";
+export const X_07_EN = "Hospital records open with staff credentials only, never for visitors in the waiting room.";
+export const X_07_AR = "سجلات المستشفى تفتح ببيانات الطاقم فقط وليس لزوار قاعة الانتظار أبدا.";
+export const X_08_EN = "Your phone verifies an update signature before installing, rejecting any file someone altered mid-download.";
+export const X_08_AR = "هاتفك يتحقق من توقيع التحديث قبل التثبيت ويرفض أي ملف عُدل أثناء التنزيل.";
+export const X_09_EN = "Result websites collapsing on announcement day: availability failing under sudden crowds.";
+export const X_09_AR = "مواقع النتائج تنهار يوم الإعلان: التوافر يفشل تحت الزحام المفاجئ.";
+export const X_10_EN = "Antivirus blocking a malicious file is a mechanism; its log of blocked files is a service.";
+export const X_10_AR = "مضاد الفيروسات الذي يحجب ملفا خبيثا آلية، وسجله للملفات المحجوبة خدمة.";
+export const X_11_EN = "Dark clouds are a threat; the lightning strike is the attack. Same sky, different moment.";
+export const X_11_AR = "الغيوم الداكنة تهديد، وضربة البرق هي الهجوم. نفس السماء ولحظة مختلفة.";
+export const X_12_EN = "Someone reading your messages over open cafe Wi-Fi changes nothing, yet learns everything.";
+export const X_12_AR = "من يقرأ رسائلك على واي فاي مقهى مفتوح لا يغير شيئا لكنه يعرف كل شيء.";
+export const X_13_EN = "Armies once exposed troop movements through radio patterns alone, without a single decoded word.";
+export const X_13_AR = "جيوش كشفت مرة تحركاتها من أنماط الراديو وحدها دون فك كلمة واحدة.";
+export const X_14_EN = "In 2016 a botnet of hijacked cameras knocked major sites offline: tiny devices, one giant flood.";
+export const X_14_AR = "في 2016 أسقطت شبكة كاميرات مخترقة مواقع كبرى: أجهزة صغيرة وطوفان واحد عملاق.";
+export const X_15_EN = "Every car key fob follows the same four tasks: cipher, secret key, key sharing, agreed protocol.";
+export const X_15_AR = "كل مفتاح سيارة يتبع نفس المهام الأربع: شفرة ومفتاح سري ومشاركته وبروتوكول متفق عليه.";
+export const X_16_EN = "Sending a bank transfer: your app encrypts, the bank decrypts, and watchers see only noise.";
+export const X_16_AR = "إرسال تحويل بنكي: تطبيقك يشفر والبنك يفك التشفير والمراقبون لا يرون إلا ضجيجا.";
+export const X_17_EN = "A campus team blocking a phishing wave before it reaches your inbox is cyber security in action.";
+export const X_17_AR = "فريق شبكة الجامعة يحجب موجة تصيد قبل وصولها لبريدك: هذا هو الأمن السيبراني عمليا.";
+export const X_18_EN = "A banking app forcing updates on your phone while its servers hide behind firewalls.";
+export const X_18_AR = "تطبيق بنكي يفرض التحديثات على هاتفك بينما خوادمه تختبئ خلف جدران نارية.";
+export const X_19_EN = "Universities keep encrypted backups so one ransomware incident cannot erase years of records.";
+export const X_19_AR = "تحتفظ الجامعات بنسخ مشفرة فلا يمحو حادث فدية واحد سنوات من السجلات.";
+export const X_20_EN = "The classic found USB stick in the parking lot test: most people plug it in within minutes.";
+export const X_20_AR = "اختبار ذاكرة USB الملقاة في الموقف الشهير: معظم الناس يوصلونها خلال دقائق.";
+export const X_21_EN = "Hospitals postponing surgeries during ransomware outbreaks show this is never abstract.";
+export const X_21_AR = "تأجيل المستشفيات للعمليات أثناء هجمات الفدية يوضح أن الأمر ليس نظريا أبدا.";
+export const X_22_EN = "Fake bank SMS messages asking for your code: cybercrime you have probably already met.";
+export const X_22_AR = "رسائل البنك المزيفة التي تطلب رمزك: جرائم إلكترونية قابلتها على الأرجح.";
+export const X_23_EN = "Next stop: Chapter 2, where you scramble your first message by hand.";
+export const X_23_AR = "المحطة التالية: الفصل الثاني حيث تشفر أول رسالة بيدك.";
+export const X_24_EN = "One page per topic beats rereading the slides: the chapter page collects all five sections with the chapter quiz.";
+export const X_24_AR = "صفحة واحدة لكل موضوع أفضل من إعادة قراءة الشرائح: صفحة الفصل تجمع الأقسام الخمسة مع اختبار الفصل.";
+export const X_25_EN = "The lecture page keeps a single link; the quiz itself lives on its own page so the chapter stays readable.";
+export const X_25_AR = "تحتفظ صفحة المحاضرة برابط واحد، ويعيش الاختبار في صفحته الخاصة لتبقى قراءة الفصل مريحة.";

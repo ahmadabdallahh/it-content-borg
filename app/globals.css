@@ -1,26 +1,364 @@
 @import "tailwindcss";
 
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
-}
+/* Dark mode is class-strategy (toggle on <html>), exactly like the original pages. */
+@custom-variant dark (&:where(.dark, .dark *));
 
+/*
+  Design tokens — copied verbatim from the HTML tailwind.config.
+  Paper / ink / ember palette, soft & lift shadows. Bench (#1a1b26) is
+  intentionally Tokyo Night — the one cool counterpoint to the warm page.
+*/
 @theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
-}
+  --color-paper: #f6f6f4;
+  --color-ink: #1c1917;
+  --color-ember: #c2410c;
+  --color-ember-soft: #fff1e8;
+  --color-ember-deep: #7c2d12;
+  --color-bench: #1a1b26;
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
+  --shadow-soft: 0 12px 32px -16px rgba(28, 25, 23, 0.25);
+  --shadow-lift: 0 16px 40px -16px rgba(194, 65, 12, 0.45);
+
+  /* Type stack is deliberate: Inter/Cairo for UI in two scripts (accessibility-first
+     classroom brief, full Arabic parity), Fira Code reserved for machine text. */
+  --font-sans: var(--font-inter), var(--font-cairo), system-ui, sans-serif;
+  --font-code: var(--font-fira), ui-monospace, monospace;
+
+  --animate-slide-in: slide-in 0.45s cubic-bezier(0.16, 1, 0.3, 1) both;
+  --animate-slide-in-r: slide-in-r 0.45s cubic-bezier(0.16, 1, 0.3, 1) both;
+
+  @keyframes slide-in {
+    from {
+      opacity: 0;
+      transform: translateX(26px);
+    }
+
+    to {
+      opacity: 1;
+      transform: none;
+    }
+  }
+
+  @keyframes slide-in-r {
+    from {
+      opacity: 0;
+      transform: translateX(-26px);
+    }
+
+    to {
+      opacity: 1;
+      transform: none;
+    }
   }
 }
 
-body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+/* Bilingual visibility driven by <html class="lang-ar"> (same mechanics as the
+   original .en-text / .ar-text switches — no content markup needs the hidden class). */
+html.lang-ar .en-text {
+  display: none;
+}
+
+html:not(.lang-ar) .ar-text {
+  display: none;
+}
+
+::selection {
+  background: #c2410c;
+  color: #fff;
+}
+
+.dark ::selection {
+  background: #fb923c;
+  color: #1c1917;
+}
+
+:focus-visible {
+  outline: 3px solid #c2410c;
+  outline-offset: 2px;
+  border-radius: 8px;
+}
+
+.dark :focus-visible {
+  outline-color: #fdba74;
+}
+
+/* ------- code lines ------- */
+.codeline {
+  display: flex;
+  gap: 0.75rem;
+  align-items: flex-start;
+  padding: 0.16rem 0.7rem;
+  padding-inline-start: 1.5rem;
+  padding-inline-end: 2.4rem;
+  border-radius: 8px;
+  border: 1px solid transparent;
+  transition:
+    background-color 0.35s ease,
+    border-color 0.35s ease,
+    opacity 0.35s ease;
+  position: relative;
+}
+
+.codeline .ln {
+  width: 1.6rem;
+  flex-shrink: 0;
+  text-align: right;
+  color: #78716c;
+  user-select: none;
+  font-size: 0.75rem;
+  padding-top: 0.28rem;
+}
+
+.dark .codeline .ln {
+  color: #8a8580;
+}
+
+.codeline.active {
+  background: linear-gradient(90deg, rgba(194, 65, 12, 0.2), rgba(194, 65, 12, 0.06));
+  border-color: rgba(194, 65, 12, 0.55);
+  box-shadow:
+    0 0 0 1px rgba(194, 65, 12, 0.3),
+    0 4px 18px -4px rgba(194, 65, 12, 0.45);
+}
+
+.codeline.done {
+  opacity: 0.72;
+}
+
+.codeline.done::after {
+  content: "✓";
+  position: absolute;
+  inset-inline-end: 0.6rem;
+  top: 0.16rem;
+  color: #10b981;
+  font-weight: 700;
+  font-size: 0.75rem;
+}
+
+.pc-arrow {
+  position: absolute;
+  inset-inline-start: 4px;
+  top: 50%;
+  transform: translateY(-50%);
+  color: #ea580c;
+  font-size: 0.9rem;
+}
+
+.dark .pc-arrow {
+  color: #fb923c;
+}
+
+/* ------- terminal ------- */
+.term-line {
+  animation: termIn 0.45s cubic-bezier(0.21, 1.02, 0.73, 1) both;
+  word-break: break-word;
+}
+
+@keyframes termIn {
+  from {
+    opacity: 0;
+    transform: translateY(8px);
+  }
+
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+/* ------- memory chips ------- */
+.mem-chip {
+  animation: pop 0.4s cubic-bezier(0.34, 1.56, 0.64, 1) both;
+}
+
+@keyframes pop {
+  0% {
+    transform: scale(0.7);
+    opacity: 0;
+  }
+
+  100% {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+
+.mem-chip.updated {
+  box-shadow: 0 0 0 2px rgba(16, 185, 129, 0.6);
+  border-color: #10b981 !important;
+}
+
+/* ------- example cards ------- */
+.ex-card {
+  transition:
+    background-color 0.25s ease,
+    transform 0.25s ease,
+    border-color 0.25s ease;
+  cursor: pointer;
+}
+
+.ex-card:hover {
+  transform: translateY(-3px);
+}
+
+.ex-card.active {
+  background: #c2410c !important;
+  color: #fff !important;
+  border-color: #c2410c !important;
+  box-shadow: 0 16px 40px -16px rgba(194, 65, 12, 0.45);
+}
+
+.dark .ex-card.active {
+  background: #9a3412 !important;
+  border-color: #9a3412 !important;
+}
+
+.ex-card.active .ex-sub {
+  color: rgba(255, 255, 255, 0.85) !important;
+}
+
+.ex-card.active .ex-num {
+  background: rgba(255, 255, 255, 0.22) !important;
+  color: #fff !important;
+}
+
+/* progress: single ember fill, no multi-hue gradient wash */
+.progress-bar {
+  transition: width 0.5s ease;
+}
+
+/* Bench panels stay dark in both themes — Tokyo Night, a cool editor palette
+   that contrasts with the warm paper/ember page. */
+.ide {
+  background: #1a1b26;
+  border: 1px solid #292e42;
+  overflow-x: clip;
+}
+
+/* Tokyo Night muted/fg overrides for utility-colored text inside the bench. */
+.ide .text-stone-400 {
+  color: #7982a9;
+}
+
+.ide .text-stone-200 {
+  color: #a9b1d6;
+}
+
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #d6d3d1;
+  border-radius: 99px;
+}
+
+.dark ::-webkit-scrollbar-thumb {
+  background: #57534e;
+}
+
+.pulse-dot {
+  animation: pdot 1.2s ease-in-out infinite;
+}
+
+@keyframes pdot {
+  0%,
+  100% {
+    opacity: 1;
+  }
+
+  50% {
+    opacity: 0.45;
+  }
+}
+
+/* scroll reveal: one entrance moment, staggered by index */
+.reveal {
+  opacity: 0;
+  transform: translateY(18px);
+  transition:
+    opacity 0.7s cubic-bezier(0.16, 1, 0.3, 1),
+    transform 0.7s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.reveal.in {
+  opacity: 1;
+  transform: none;
+}
+
+/* caret (hero typing + soc terminal) */
+.typecaret,
+.soc-caret {
+  display: inline-block;
+  width: 0.6ch;
+  background: #fdba74;
+  animation: blink 1s steps(1) infinite;
+}
+
+@keyframes blink {
+  50% {
+    opacity: 0;
+  }
+}
+
+/* ------- CIA tabs + quiz options (cyber page) ------- */
+.cia-tab[aria-selected="true"] {
+  background: #c2410c;
+  color: #fff;
+  border-color: #c2410c;
+}
+
+.dark .cia-tab[aria-selected="true"] {
+  background: #9a3412;
+  border-color: #9a3412;
+}
+
+.opt:has(input:checked) {
+  border-color: #c2410c;
+  background: #fff1e8;
+}
+
+.dark .opt:has(input:checked) {
+  background: rgba(251, 146, 60, 0.12);
+}
+
+.opt.correct {
+  border-color: #059669 !important;
+  background: #ecfdf5 !important;
+}
+
+.dark .opt.correct {
+  background: rgba(16, 185, 129, 0.12) !important;
+}
+
+.opt.wrong {
+  border-color: #dc2626 !important;
+  background: #fef2f2 !important;
+}
+
+.dark .opt.wrong {
+  background: rgba(220, 38, 38, 0.12) !important;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+
+  .term-line,
+  .mem-chip,
+  .reveal,
+  .typecaret,
+  .soc-caret,
+  .pulse-dot {
+    animation: none !important;
+    transition: none !important;
+    opacity: 1 !important;
+    transform: none !important;
+  }
 }
