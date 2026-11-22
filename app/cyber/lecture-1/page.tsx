@@ -4,12 +4,17 @@ import SiteHeader from "@/components/site-header";
 import Reveal, { ScrollToButton } from "@/components/page-chrome";
 import Resources, { ResourceCard } from "@/components/resource-card";
 import CiaTabs from "@/components/cyber/cia-tabs";
+import {
+  AttackFlowchart,
+  DesignTaskPipeline,
+  NetworkPacketFlow,
+} from "@/components/cyber/lecture-visuals";
 import SocTerminal, { SocClearButton } from "@/components/cyber/soc-terminal";
 
 export const metadata: Metadata = {
   title: "Lecture 1: Introduction to Cyber Security",
   description:
-    "Lecture 1: security fundamentals, the CIA triad, attacks, the network security model, categories, threats. Bilingual EN/AR with a 16-question comprehensive quiz.",
+    "Lecture 1: security fundamentals, the CIA triad, attacks, the network security model, categories, threats. Bilingual EN/AR with a 16-question self-check and a 47-question bank.",
 };
 
 export default function CyberLecture1() {
@@ -542,6 +547,11 @@ export default function CyberLecture1() {
           </section>
           </Reveal>
 
+          {/* Animated attack flowchart */}
+          <Reveal>
+            <AttackFlowchart />
+          </Reveal>
+
           {/* Model for network security */}
           <Reveal>
           <section
@@ -563,58 +573,9 @@ export default function CyberLecture1() {
                 يراقبها خصم، ثم يعكس المستقبل التحويل بالسر نفسه.
               </span>
             </p>
-            <div className="mt-4 rounded-xl bg-stone-900/[.04] dark:bg-black/30 p-4">
-              <div className="grid grid-cols-1 md:grid-cols-[1fr_auto_1fr_auto_1fr_auto_1fr] gap-2 items-stretch text-center">
-                <div className="rounded-lg border border-stone-200 dark:border-white/10 p-3">
-                  <p className="font-extrabold text-sm en-text">Sender</p>
-                  <p className="font-extrabold text-sm ar-text">المرسل</p>
-                  <p className="font-code text-[11px] text-stone-500 dark:text-stone-400 mt-1">
-                    plaintext
-                  </p>
-                </div>
-                <span className="hidden md:grid place-items-center text-ember dark:text-orange-300 font-bold" aria-hidden="true">
-                  →
-                </span>
-                <div className="rounded-lg border border-ember/60 dark:border-orange-300/60 bg-ember/5 dark:bg-orange-300/5 p-3">
-                  <p className="font-extrabold text-sm en-text">Encryption</p>
-                  <p className="font-extrabold text-sm ar-text">التشفير</p>
-                  <p className="font-code text-[11px] text-stone-500 dark:text-stone-400 mt-1">
-                    secret key
-                  </p>
-                </div>
-                <span className="hidden md:grid place-items-center text-ember dark:text-orange-300 font-bold" aria-hidden="true">
-                  →
-                </span>
-                <div className="rounded-lg border border-dashed border-stone-300 dark:border-white/20 p-3">
-                  <p className="font-extrabold text-sm en-text">Channel</p>
-                  <p className="font-extrabold text-sm ar-text">القناة</p>
-                  <p className="font-code text-[11px] text-red-500 dark:text-red-400 mt-1">
-                    <span className="en-text">opponent watches</span>
-                    <span className="ar-text">الخصم يراقب</span>
-                  </p>
-                </div>
-                <span className="hidden md:grid place-items-center text-ember dark:text-orange-300 font-bold" aria-hidden="true">
-                  →
-                </span>
-                <div className="rounded-lg border border-ember/60 dark:border-orange-300/60 bg-ember/5 dark:bg-orange-300/5 p-3">
-                  <p className="font-extrabold text-sm en-text">Decryption</p>
-                  <p className="font-extrabold text-sm ar-text">فك التشفير</p>
-                  <p className="font-code text-[11px] text-stone-500 dark:text-stone-400 mt-1">
-                    same key
-                  </p>
-                </div>
-                <span className="hidden md:grid place-items-center text-ember dark:text-orange-300 font-bold" aria-hidden="true">
-                  →
-                </span>
-                <div className="rounded-lg border border-stone-200 dark:border-white/10 p-3">
-                  <p className="font-extrabold text-sm en-text">Receiver</p>
-                  <p className="font-extrabold text-sm ar-text">المستقبل</p>
-                  <p className="font-code text-[11px] text-stone-500 dark:text-stone-400 mt-1">
-                    plaintext
-                  </p>
-                </div>
-              </div>
-              <p className="text-xs text-stone-600 dark:text-stone-300 mt-3">
+            <NetworkPacketFlow />
+            <div className="mt-3">
+              <p className="text-xs text-stone-600 dark:text-stone-300">
                 <span className="en-text">
                   Secrets are shared through a trusted third party — that is
                   design task 3 below.
@@ -637,6 +598,7 @@ export default function CyberLecture1() {
                 </span>
                 <span className="ar-text">تصميم خدمة أمنية: ٤ مهام</span>
               </h4>
+              <DesignTaskPipeline />
               <ol className="mt-3 space-y-2.5 text-sm">
                 <li className="flex gap-3">
                   <span className="font-code font-bold text-ember dark:text-orange-300">
@@ -1095,17 +1057,17 @@ export default function CyberLecture1() {
             <div className="flex flex-wrap items-center justify-between gap-4">
               <div className="min-w-0">
                 <h4 id="quizTitle" className="text-xl font-extrabold">
-                  <span className="en-text">Comprehensive quiz · 16 questions</span>
-                  <span className="ar-text">اختبار شامل · ١٦ سؤالًا</span>
+                  <span className="en-text">Quiz · 16 + 47 questions</span>
+                  <span className="ar-text">اختبار · ١٦ + ٤٧ سؤالًا</span>
                 </h4>
                 <p className="text-sm text-stone-600 dark:text-stone-300 mt-1 max-w-[52ch]">
                   <span className="en-text">
-                    All five chapter topics on a dedicated quiz page — score,
-                    answers and retry.
+                    Sixteen-question self-check plus the full 47-question bank
+                    from the lecture sheet — score, answers and retry.
                   </span>
                   <span className="ar-text">
-                    موضوعات الفصل الخمسة في صفحة اختبار مستقلة — النتيجة والإجابات
-                    وإعادة المحاولة.
+                    اختبار ذاتي من ١٦ سؤالًا مع بنك الأسئلة الكامل من ورقة
+                    المحاضرة — النتيجة والإجابات وإعادة المحاولة.
                   </span>
                 </p>
               </div>

@@ -302,6 +302,103 @@ html:not(.lang-ar) .ar-text {
   }
 }
 
+/* ------- lecture 1 motion explainers ------- */
+.lec-cia-edge,
+.lec-flow-edge {
+  stroke-dasharray: 7 11;
+  animation: lecDash 3s linear infinite;
+}
+
+.lec-cia-core {
+  transition:
+    fill 0.3s ease,
+    transform 0.3s ease;
+  transform-box: fill-box;
+  transform-origin: center;
+}
+
+.lec-cia-node[data-active="true"] .lec-cia-core {
+  transform: scale(1.08);
+}
+
+.lec-cia-halo {
+  transform-box: fill-box;
+  transform-origin: center;
+  animation: lecHalo 2.4s ease-out infinite;
+}
+
+.lec-flow-branch {
+  transition:
+    opacity 0.3s ease,
+    transform 0.3s ease;
+}
+
+.lec-flow-branch[data-muted="true"] {
+  opacity: 0.4;
+}
+
+.lec-flow-branch[data-selected="true"] {
+  transform: translateY(-2px);
+}
+
+.lec-packet-dot,
+.lec-packet-trail {
+  transform-box: view-box;
+  animation: lecPacket 5.5s linear infinite;
+}
+
+.lec-packet-trail {
+  opacity: 0.35;
+  animation-delay: -0.12s;
+}
+
+.lec-task-node {
+  animation: lecTaskIn 0.5s cubic-bezier(0.16, 1, 0.3, 1) both;
+}
+
+@keyframes lecDash {
+  to {
+    stroke-dashoffset: -36;
+  }
+}
+
+@keyframes lecHalo {
+  0% {
+    opacity: 0.65;
+    transform: scale(0.82);
+  }
+  100% {
+    opacity: 0;
+    transform: scale(1.45);
+  }
+}
+
+@keyframes lecPacket {
+  0% {
+    transform: translateX(0);
+    opacity: 0;
+  }
+  8%,
+  90% {
+    opacity: 1;
+  }
+  100% {
+    transform: translateX(800px);
+    opacity: 0;
+  }
+}
+
+@keyframes lecTaskIn {
+  from {
+    opacity: 0;
+    transform: translateY(8px);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+
 /* ------- CIA tabs + quiz options (cyber page) ------- */
 .cia-tab[aria-selected="true"] {
   background: #c2410c;
@@ -355,10 +452,19 @@ html:not(.lang-ar) .ar-text {
   .reveal,
   .typecaret,
   .soc-caret,
-  .pulse-dot {
+  .pulse-dot,
+  .lec-cia-edge,
+  .lec-flow-edge,
+  .lec-cia-halo,
+  .lec-task-node {
     animation: none !important;
     transition: none !important;
     opacity: 1 !important;
     transform: none !important;
+  }
+
+  .lec-packet-dot,
+  .lec-packet-trail {
+    display: none !important;
   }
 }

@@ -3,11 +3,12 @@ import SiteHeader from "@/components/site-header";
 import Reveal from "@/components/page-chrome";
 import Resources, { ResourceCard } from "@/components/resource-card";
 import QuizSection from "@/components/cyber/quiz";
+import Lecture1QuestionBank from "@/components/cyber/lecture1-question-bank";
 
 export const metadata: Metadata = {
   title: "Lecture 1 Quiz: Introduction to Cyber Security",
   description:
-    "Comprehensive 16-question quiz on Lecture 1: security fundamentals, CIA triad, attacks, the network security model, categories, importance and threat types. Bilingual EN/AR.",
+    "Lecture 1 self-check plus the full 47-question bank: multiple choice, true/false and short answers on the CIA triad, attacks, network security model, categories and threats. Bilingual EN/AR.",
 };
 
 export default function CyberLecture1QuizPage() {
@@ -51,8 +52,18 @@ export default function CyberLecture1QuizPage() {
               </span>
               <span className="ar-text">
                 ستة عشر سؤالًا تغطي موضوعات الفصل الخمسة — CIA والهجمات ونموذج
-                أمن الشبكة والتصنيفات والتهديدات. النتيجة في النهاية وإعادة في
-                أي وقت.
+                أمن الشبكة والتصنيفات والتهديدات. النتيجة في النهاية
+                وإعادة في أي وقت.
+              </span>
+            </p>
+            <p className="text-sm text-stone-600 dark:text-stone-300 leading-relaxed max-w-[60ch] mt-2">
+              <span className="en-text">
+                Below it: the complete 47-question bank from the lecture sheet —
+                22 multiple choice, 10 true/false and 15 short answer.
+              </span>
+              <span className="ar-text">
+                وأدناه بنك الأسئلة الكامل من ورقة المحاضرة — ٢٢ اختيار من متعدد،
+                و١٠ صح/خطأ، و١٥ إجابة قصيرة.
               </span>
             </p>
           </Reveal>
@@ -62,6 +73,9 @@ export default function CyberLecture1QuizPage() {
         <div id="quiz" className="scroll-mt-24">
           <QuizSection />
         </div>
+
+        {/* Full question bank from docs/Question.md */}
+        <Lecture1QuestionBank />
 
         {/* Resources */}
         <Resources>
