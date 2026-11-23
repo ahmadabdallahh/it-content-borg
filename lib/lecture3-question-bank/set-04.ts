@@ -1,0 +1,87 @@
+import type { LectureQuestion } from "../lecture-question-types";
+import { TF } from "./tf";
+
+export const LECTURE3_QUESTIONS_SET_04: LectureQuestion[] = [
+  /* ---------------- Set 4 · Vigenère details ---------------- */
+  {
+    id: 16,
+    kind: "mcq",
+    section_en: "Vigenère",
+    section_ar: "فينير",
+    q_en: "Each of the 26 related substitution rules is denoted by…",
+    q_ar: "كل قاعدة من القواعد الـ٢٦ المترابطة يُرمز لها بـ…",
+    options: [
+      { en: "a key letter", ar: "حرف مفتاح" },
+      { en: "a number only", ar: "رقم فقط" },
+      { en: "a symbol", ar: "رمز" },
+      { en: "the plaintext letter", ar: "حرف النص الأصلي" },
+    ],
+    answer: 0,
+    why_en: "Each cipher in the table is denoted by a key letter.",
+    why_ar: "كل شيفرة في الجدول يُرمز لها بحرف مفتاح.",
+  },
+  {
+    id: 17,
+    kind: "mcq",
+    section_en: "Vigenère",
+    section_ar: "فينير",
+    q_en: "Vigenère can give multiple ciphertext letters for one plaintext letter. The lecture calls this an improvement over…",
+    q_ar: "قد يعطي فينير عدة حروف مشفرة لحرف أصلي واحد. تسمي المحاضرة هذا تحسينًا على…",
+    options: [
+      { en: "Playfair", ar: "بليفير" },
+      { en: "Atbash", ar: "أتباش" },
+      { en: "ROT13", ar: "ROT13" },
+      { en: "Caesar", ar: "قيصر" },
+    ],
+    answer: 0,
+    why_en: "The slide says multiple ciphertext letters per plaintext letter is an improvement over Playfair.",
+    why_ar: "تقول الشريحة إن تعدد الحروف المشفرة لكل حرف أصلي تحسين على بليفير.",
+  },
+  {
+    id: 18,
+    kind: "mcq",
+    section_en: "Vigenère",
+    section_ar: "فينير",
+    q_en: "If the key length is N, the Vigenère cipher is effectively…",
+    q_ar: "إذا كان طول المفتاح N، فإن شيفرة فينير فعليًا…",
+    options: [
+      { en: "N monoalphabetic substitutions", ar: "N إحلالًا أحادي الأبجدية" },
+      { en: "one single substitution", ar: "إحلالًا واحدًا فقط" },
+      { en: "N transpositions", ar: "N عملية تبديل" },
+      { en: "N modern ciphers", ar: "N شيفرة حديثة" },
+    ],
+    answer: 0,
+    why_en: "A keyword of length N makes the cipher N interleaved monoalphabetic substitutions.",
+    why_ar: "كلمة مفتاحية طولها N تجعل الشيفرة N إحلالًا أحاديًا متداخلًا.",
+  },
+  {
+    id: 19,
+    kind: "mcq",
+    section_en: "Vigenère",
+    section_ar: "فينير",
+    q_en: "The periodic nature of the keyword can be removed by using…",
+    q_ar: "يمكن إزالة الطبيعة الدورية للكلمة المفتاحية باستخدام…",
+    options: [
+      { en: "a nonrepeating keyword as long as the message", ar: "كلمة مفتاحية غير متكررة بطول الرسالة" },
+      { en: "a much shorter key", ar: "مفتاح أقصر بكثير" },
+      { en: "one fixed key", ar: "مفتاح ثابت واحد" },
+      { en: "no key at all", ar: "بدون أي مفتاح" },
+    ],
+    answer: 0,
+    why_en: "A nonrepeating key as long as the message with no statistical relation removes the period.",
+    why_ar: "مفتاح غير متكرر بطول الرسالة دون علاقة إحصائية يزيل الدورية.",
+  },
+  {
+    id: 20,
+    kind: "tf",
+    section_en: "Vigenère",
+    section_ar: "فينير",
+    q_en: "Vigenère preserves the full structure of the plaintext.",
+    q_ar: "يحافظ فينير على البنية الكاملة للنص الأصلي.",
+    options: TF,
+    answer: 1,
+    why_en: "False — the slide says “not all knowledge of the plaintext structure is lost”, i.e. some, not all.",
+    why_ar: "خطأ — تقول الشريحة «لا تُفقد كل معرفة ببنية النص»، أي بعضها وليس كلها.",
+  },
+
+];
