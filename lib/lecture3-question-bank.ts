@@ -6,35 +6,15 @@
   cipher and transposition ciphers.
 */
 
-export type L3ObjectiveQuestion = {
-  id: number;
-  kind: "mcq" | "tf";
-  section_en: string;
-  section_ar: string;
-  q_en: string;
-  q_ar: string;
-  options: { en: string; ar: string }[];
-  answer: number;
-  why_en: string;
-  why_ar: string;
-};
+import type {
+  LectureObjectiveQuestion,
+  LectureQuestion,
+  LectureShortQuestion,
+} from "./lecture-question-types";
 
-export type L3ShortQuestion = {
-  id: number;
-  kind: "short";
-  section_en: string;
-  section_ar: string;
-  q_en: string;
-  q_ar: string;
-  answer_en: string;
-  answer_ar: string;
-  accept_en: string[][];
-  accept_ar: string[][];
-  why_en: string;
-  why_ar: string;
-};
-
-export type L3Question = L3ObjectiveQuestion | L3ShortQuestion;
+export type L3ObjectiveQuestion = LectureObjectiveQuestion;
+export type L3ShortQuestion = LectureShortQuestion;
+export type L3Question = LectureQuestion;
 
 const TF = [
   { en: "True", ar: "صحيح" },

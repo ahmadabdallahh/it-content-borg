@@ -4,35 +4,15 @@
   Source stops after the Caesar exercise, so the bank stays inside that range.
 */
 
-export type L2ObjectiveQuestion = {
-  id: number;
-  kind: "mcq" | "tf";
-  section_en: string;
-  section_ar: string;
-  q_en: string;
-  q_ar: string;
-  options: { en: string; ar: string }[];
-  answer: number;
-  why_en: string;
-  why_ar: string;
-};
+import type {
+  LectureObjectiveQuestion,
+  LectureQuestion,
+  LectureShortQuestion,
+} from "./lecture-question-types";
 
-export type L2ShortQuestion = {
-  id: number;
-  kind: "short";
-  section_en: string;
-  section_ar: string;
-  q_en: string;
-  q_ar: string;
-  answer_en: string;
-  answer_ar: string;
-  accept_en: string[][];
-  accept_ar: string[][];
-  why_en: string;
-  why_ar: string;
-};
-
-export type L2Question = L2ObjectiveQuestion | L2ShortQuestion;
+export type L2ObjectiveQuestion = LectureObjectiveQuestion;
+export type L2ShortQuestion = LectureShortQuestion;
+export type L2Question = LectureQuestion;
 
 export const LECTURE2_QUESTION_BANK: L2Question[] = [
   {
