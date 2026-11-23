@@ -65,13 +65,13 @@ const FOCUS =
 export default function CyberCoursePage() {
   return (
     <>
-      <a
+      <Link
         href="#lectures"
         className="sr-only focus:not-sr-only focus:absolute focus:top-2 focus:start-2 focus:z-[60] focus:px-4 focus:py-2 focus:bg-ember focus:text-white focus:rounded-xl focus:font-bold"
       >
         <span className="en-text">Skip to lectures</span>
         <span className="ar-text">تخطَّ إلى المحاضرات</span>
-      </a>
+      </Link>
 
       <SiteHeader
         badge="CS"

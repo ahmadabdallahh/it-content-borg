@@ -1,3 +1,4 @@
+import Link from "next/link";
 import type { Metadata } from "next";
 import SiteHeader from "@/components/site-header";
 import Reveal, { ScrollToButton } from "@/components/page-chrome";
@@ -26,13 +27,13 @@ const TRANSPOSE_KEY = [4, 3, 1, 2, 5, 6, 7];
 export default function CyberLecture3() {
   return (
     <>
-      <a
+      <Link
         href="#chapter"
         className="sr-only focus:not-sr-only focus:absolute focus:top-2 focus:start-2 focus:z-[60] focus:px-4 focus:py-2 focus:bg-ember focus:text-white focus:rounded-xl focus:font-bold"
       >
         <span className="en-text">Skip to chapter</span>
         <span className="ar-text">تخطَّ إلى الفصل</span>
-      </a>
+      </Link>
 
       <SiteHeader
         badge="CS"

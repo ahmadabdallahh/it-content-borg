@@ -1,3 +1,4 @@
+import Link from "next/link";
 import type { Metadata } from "next";
 import SiteHeader from "@/components/site-header";
 import Reveal from "@/components/page-chrome";
@@ -14,13 +15,13 @@ export const metadata: Metadata = {
 export default function CyberLecture1QuizPage() {
   return (
     <>
-      <a
+      <Link
         href="#quiz"
         className="sr-only focus:not-sr-only focus:absolute focus:top-2 focus:start-2 focus:z-[60] focus:px-4 focus:py-2 focus:bg-ember focus:text-white focus:rounded-xl focus:font-bold"
       >
         <span className="en-text">Skip to quiz</span>
         <span className="ar-text">تخطَّ إلى الاختبار</span>
-      </a>
+      </Link>
 
       <SiteHeader
         badge="CS"
