@@ -37,6 +37,12 @@ Excluded: `node_modules`, `.git`, `.next`, `.vercel`, agent tooling (`.agent`, `
 │   └── page.tsx
 ├── components
 │   ├── cyber
+│   │   ├── lecture1
+│   │   │   ├── attacks-model.tsx
+│   │   │   ├── categories-threats.tsx
+│   │   │   ├── chapter-cia.tsx
+│   │   │   ├── hero-topics.tsx
+│   │   │   └── outro.tsx
 │   │   ├── cia-tabs.tsx
 │   │   ├── cipher-lab.tsx
 │   │   ├── lecture1-question-bank.tsx
@@ -64,6 +70,29 @@ Excluded: `node_modules`, `.git`, `.next`, `.vercel`, agent tooling (`.agent`, `
 │   ├── lec-2.md
 │   └── lec-3.md
 ├── lib
+│   ├── lecture2-question-bank
+│   │   ├── set-01.ts
+│   │   ├── set-02.ts
+│   │   ├── set-03.ts
+│   │   ├── set-04.ts
+│   │   ├── set-05.ts
+│   │   ├── set-06.ts
+│   │   ├── set-07.ts
+│   │   ├── set-08.ts
+│   │   ├── set-09.ts
+│   │   └── set-10.ts
+│   ├── lecture3-question-bank
+│   │   ├── set-01.ts
+│   │   ├── set-02.ts
+│   │   ├── set-03.ts
+│   │   ├── set-04.ts
+│   │   ├── set-05.ts
+│   │   ├── set-06.ts
+│   │   ├── set-07.ts
+│   │   ├── set-08.ts
+│   │   ├── set-09.ts
+│   │   ├── set-10.ts
+│   │   └── tf.ts
 │   ├── cyber-data.ts
 │   ├── lecture1-question-bank.ts
 │   ├── lecture2-question-bank.ts
@@ -83,6 +112,7 @@ Excluded: `node_modules`, `.git`, `.next`, `.vercel`, agent tooling (`.agent`, `
 ├── AGENTS.md
 ├── DESIGN.md
 ├── eslint.config.mjs
+├── file-tree.md
 ├── .gitignore
 ├── next.config.ts
 ├── next-env.d.ts
