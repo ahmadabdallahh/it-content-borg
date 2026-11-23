@@ -1,7 +1,6 @@
 import type { Metadata } from "next";
-import SiteHeader from "@/components/site-header";
-import Reveal from "@/components/page-chrome";
-import Resources, { ResourceCard } from "@/components/resource-card";
+import { ResourceCard } from "@/components/resource-card";
+import LectureQuizPage from "@/components/cyber/lecture-quiz-page";
 import Lecture3QuestionBank from "@/components/cyber/lecture3-question-bank";
 
 export const metadata: Metadata = {
@@ -12,63 +11,33 @@ export const metadata: Metadata = {
 
 export default function CyberLecture3QuizPage() {
   return (
-    <>
-      <a
-        href="#quiz"
-        className="sr-only focus:not-sr-only focus:absolute focus:top-2 focus:start-2 focus:z-[60] focus:px-4 focus:py-2 focus:bg-ember focus:text-white focus:rounded-xl focus:font-bold"
-      >
-        <span className="en-text">Skip to quiz</span>
-        <span className="ar-text">تخطَّ إلى الاختبار</span>
-      </a>
-
-      <SiteHeader
-        badge="CS"
-        backFallback="/cyber/lecture-3"
-        title={
-          <>
-            CyberSec_Lec3_Quiz
-            <span className="text-ember dark:text-orange-300">.html</span>
-          </>
-        }
-      />
-
-      <main className="flex-1 w-full max-w-6xl mx-auto px-4 sm:px-6 pb-16">
-        {/* Hero */}
-        <div className="pt-14 lg:pt-20 pb-10">
-          <Reveal>
-            <p className="font-code text-xs font-semibold text-ember dark:text-orange-300 mb-3">
-              LECTURE 3 · CLASSICAL ENCRYPTION / DECRYPTION · QUIZ
-            </p>
-            <h2 className="text-4xl md:text-5xl font-extrabold tracking-tight leading-[1.1] pb-1">
-              <span className="en-text">Fifty questions, ten short sets.</span>
-              <span className="ar-text">خمسون سؤالًا في عشر مجموعات قصيرة.</span>
-            </h2>
-            <p className="text-base text-stone-600 dark:text-stone-300 leading-relaxed max-w-[62ch] mt-4">
-              <span className="en-text">
-                Work through encryption types, characterization, the substitution
-                families, Vigenère arithmetic, Playfair rules and transposition.
-                Check each answer for a right/wrong verdict and a short reason,
-                then see the full result.
-              </span>
-              <span className="ar-text">
-                مرّ على أنواع التشفير والتوصيف وعائلات الإحلال وحسابات فينير
-                وقواعد بليفير والتبديل. تحقق من كل إجابة لتعرف إن كانت صحيحة
-                وسببها، ثم شاهد النتيجة الكاملة.
-              </span>
-            </p>
-            <p className="font-code text-xs font-bold text-ember dark:text-orange-300 mt-3">
-              10 SETS × 5 QUESTIONS · EN/AR · INSTANT FEEDBACK
-            </p>
-          </Reveal>
-        </div>
-
-        {/* Quiz */}
-        <div id="quiz" className="scroll-mt-24">
-          <Lecture3QuestionBank />
-        </div>
-
-        {/* Resources */}
-        <Resources>
+    <LectureQuizPage
+      backFallback="/cyber/lecture-3"
+      title={
+        <>
+          CyberSec_Lec3_Quiz
+          <span className="text-ember dark:text-orange-300">.html</span>
+        </>
+      }
+      eyebrow="LECTURE 3 · CLASSICAL ENCRYPTION / DECRYPTION · QUIZ"
+      heroBody={
+        <>
+          <span className="en-text">
+            Work through encryption types, characterization, the substitution
+            families, Vigenère arithmetic, Playfair rules and transposition.
+            Check each answer for a right/wrong verdict and a short reason, then
+            see the full result.
+          </span>
+          <span className="ar-text">
+            مرّ على أنواع التشفير والتوصيف وعائلات الإحلال وحسابات فينير وقواعد
+            بليفير والتبديل. تحقق من كل إجابة لتعرف إن كانت صحيحة وسببها، ثم
+            شاهد النتيجة الكاملة.
+          </span>
+        </>
+      }
+      quiz={<Lecture3QuestionBank />}
+      resources={
+        <>
           <ResourceCard
             href="/cyber/lecture-3"
             badge="CS"
@@ -89,13 +58,14 @@ export default function CyberLecture3QuizPage() {
             metaEn="10 sets · result"
             metaAr="١٠ مجموعات · نتيجة"
           />
-        </Resources>
-      </main>
-
-      <footer className="border-t border-stone-200 dark:border-white/10 text-center py-5 text-xs text-stone-500 dark:text-stone-400">
-        Lecture 3 Quiz · Classical Encryption / Decryption Techniques · Borg El
-        Arab Technological University
-      </footer>
-    </>
+        </>
+      }
+      footer={
+        <>
+          Lecture 3 Quiz · Classical Encryption / Decryption Techniques · Borg
+          El Arab Technological University
+        </>
+      }
+    />
   );
 }
