@@ -6,46 +6,20 @@ import { useLang } from "@/components/chrome";
 import {
   LECTURE3_QUESTION_BANK,
   type L3Question,
-  type L3ShortQuestion,
 } from "@/lib/lecture3-question-bank";
+import {
+  type AnswerState,
+  SET_SIZE,
+  scoreTier,
+  shortAnswerCorrect,
+  splitQuestionSets,
+} from "@/lib/quiz-utils";
 
-const SET_SIZE = 5;
-const SETS = Array.from({ length: Math.ceil(LECTURE3_QUESTION_BANK.length / SET_SIZE) }, (_, i) =>
-  LECTURE3_QUESTION_BANK.slice(i * SET_SIZE, (i + 1) * SET_SIZE),
-);
+const SETS = splitQuestionSets(LECTURE3_QUESTION_BANK);
 const LAST_SET = SETS.length - 1;
-
-type AnswerState = {
-  correct: boolean;
-  picked?: number;
-  text?: string;
-};
 
 const FOCUS =
   "focus-visible:outline focus-visible:outline-[3px] focus-visible:outline-offset-2 focus-visible:outline-ember dark:focus-visible:outline-orange-300";
-
-/* Arabic diacritics and letter variants folded so short answers stay forgiving. */
-function normalizeAnswer(value: string) {
-  return value
-    .toLowerCase()
-    .replace(/[−–—]/g, "-")
-    .normalize("NFKD")
-    .replace(/[\u064B-\u065F\u0670]/g, "")
-    .replace(/[أإآ]/g, "ا")
-    .replace(/ى/g, "ي")
-    .replace(/ؤ/g, "و")
-    .replace(/ئ/g, "ي")
-    .replace(/[^a-z0-9\u0600-\u06ff]+/g, " ")
-    .trim();
-}
-
-function shortAnswerCorrect(q: L3ShortQuestion, value: string, lang: "en" | "ar") {
-  const answer = normalizeAnswer(value);
-  const groups = lang === "en" ? q.accept_en : q.accept_ar;
-  return groups.every((group) =>
-    group.some((token) => answer.includes(normalizeAnswer(token))),
-  );
-}
 
 /*
   Lecture 3 quiz: ten checked sets of five. Each question verifies on its own,
@@ -139,20 +113,21 @@ export default function Lecture3QuestionBank() {
     );
   };
 
+  const tier = scoreTier(score, LECTURE3_QUESTION_BANK.length);
   const verdict =
     lang === "en"
-      ? score === LECTURE3_QUESTION_BANK.length
+      ? tier === "perfect"
         ? "Perfect run. You own Vigenère, Playfair and transposition."
-        : score >= 40
+        : tier === "strong"
           ? "Strong pass. Review the misses, then try again."
-          : score >= 25
+          : tier === "progress"
             ? "Good progress. Recheck the Vigenère arithmetic and Playfair rules."
             : "Reread the lecture cards, then reset and work set by set."
-      : score === LECTURE3_QUESTION_BANK.length
+      : tier === "perfect"
         ? "نتيجة كاملة. أصبح فينير وبليفير والتبديل لك."
-        : score >= 40
+        : tier === "strong"
           ? "نجاح قوي. راجع الأخطاء ثم حاول مجددًا."
-          : score >= 25
+          : tier === "progress"
             ? "تقدم جيد. أعد فحص حسابات فينير وقواعد بليفير."
             : "اقرأ بطاقات المحاضرة ثم ابدأ من جديد مجموعة بمجموعة.";
 
