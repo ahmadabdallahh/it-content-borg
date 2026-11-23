@@ -3,11 +3,17 @@ import SiteHeader from "@/components/site-header";
 import Reveal, { ScrollToButton } from "@/components/page-chrome";
 import Resources, { ResourceCard } from "@/components/resource-card";
 import CipherLab from "@/components/cyber/cipher-lab";
+import {
+  CaesarExamplePipeline,
+  CaesarShiftWheel,
+  CipherTaxonomy,
+  SymmetricCipherModel,
+} from "@/components/cyber/lecture2-visuals";
 
 export const metadata: Metadata = {
   title: "Lecture 2: Classical Encryption Techniques",
   description:
-    "Lecture 2: classical substitution and transposition ciphers — Caesar, Atbash, multiplicative, affine, Vigenère, Playfair, Hill, rail fence and columnar transposition. Bilingual EN/AR with a live cipher lab.",
+    "Lecture 2: classical substitution and transposition ciphers, the symmetric model and Caesar shifts — with animated diagrams, a live cipher lab and a 50-question bilingual quiz in ten checked sets.",
 };
 
 export default function CyberLecture2() {
@@ -178,6 +184,15 @@ export default function CyberLecture2() {
             </section>
           </Reveal>
 
+          {/* Symmetric model + operation taxonomy */}
+          <Reveal>
+            <SymmetricCipherModel />
+          </Reveal>
+
+          <Reveal>
+            <CipherTaxonomy />
+          </Reveal>
+
           {/* Cipher lab */}
           <Reveal>
             <section className="mt-6 rounded-2xl border border-stone-200 dark:border-white/10 bg-white dark:bg-[#1a1815] p-5 sm:p-6 shadow-soft">
@@ -261,6 +276,15 @@ export default function CyberLecture2() {
                 </div>
               </div>
             </section>
+          </Reveal>
+
+          {/* Caesar motion graphics + worked example */}
+          <Reveal>
+            <CaesarShiftWheel />
+          </Reveal>
+
+          <Reveal>
+            <CaesarExamplePipeline />
           </Reveal>
 
           {/* Polyalphabetic */}
@@ -485,6 +509,17 @@ export default function CyberLecture2() {
 
           {/* Files & resources for this lecture */}
           <Resources>
+            <ResourceCard
+              href="/cyber/lecture-2/quiz"
+              badge="50"
+              primary
+              en="Lecture 2 quiz · 50 questions"
+              ar="اختبار المحاضرة ٢ · ٥٠ سؤالًا"
+              dEn="Ten short sets of five. Answer all five, check the set, see why, then get a final score."
+              dAr="عشر مجموعات من خمسة أسئلة. أجب عن الخمسة، تحقق من المجموعة، تعرف السبب، ثم تحصل على النتيجة النهائية."
+              metaEn="10 sets · check by set · result"
+              metaAr="١٠ مجموعات · فحص بالمجموعة · نتيجة"
+            />
             <ResourceCard
               href="/cyber/quiz"
               badge="?"

@@ -438,6 +438,106 @@ html:not(.lang-ar) .ar-text {
   background: rgba(220, 38, 38, 0.12) !important;
 }
 
+/* ------- lecture 2 motion explainers ------- */
+.lec2-dash {
+  stroke-dasharray: 6 10;
+  animation: lec2Dash 2.6s linear infinite;
+}
+
+.lec2-key-line {
+  transition: opacity 0.3s ease;
+}
+
+.lec2-key-line[data-on="false"] {
+  opacity: 0.12;
+}
+
+.lec2-packet {
+  transform-box: view-box;
+  animation: lec2Packet 4.6s ease-in-out infinite;
+}
+
+.lec2-cell {
+  animation: lec2CellIn 0.35s ease both;
+}
+
+.lec2-fade-in {
+  animation: lec2FadeIn 0.42s cubic-bezier(0.16, 1, 0.3, 1) both;
+}
+
+.lec2-step {
+  animation: lec2StepIn 0.5s cubic-bezier(0.16, 1, 0.3, 1) both;
+}
+
+.lec2-score-pop {
+  animation: lec2Pop 0.5s cubic-bezier(0.34, 1.56, 0.64, 1) both;
+}
+
+@keyframes lec2Dash {
+  to {
+    stroke-dashoffset: -32;
+  }
+}
+
+@keyframes lec2Packet {
+  0%,
+  100% {
+    transform: translateX(0);
+    opacity: 0;
+  }
+  12%,
+  88% {
+    opacity: 1;
+  }
+  50% {
+    transform: translateX(180px);
+  }
+}
+
+@keyframes lec2CellIn {
+  from {
+    opacity: 0;
+    transform: translateY(5px);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+@keyframes lec2FadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+@keyframes lec2StepIn {
+  from {
+    opacity: 0;
+    transform: translateY(8px);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+@keyframes lec2Pop {
+  from {
+    opacity: 0;
+    transform: scale(0.96);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+
 @media (prefers-reduced-motion: reduce) {
   *,
   *::before,
@@ -456,7 +556,12 @@ html:not(.lang-ar) .ar-text {
   .lec-cia-edge,
   .lec-flow-edge,
   .lec-cia-halo,
-  .lec-task-node {
+  .lec-task-node,
+  .lec2-dash,
+  .lec2-cell,
+  .lec2-fade-in,
+  .lec2-step,
+  .lec2-score-pop {
     animation: none !important;
     transition: none !important;
     opacity: 1 !important;
@@ -464,7 +569,8 @@ html:not(.lang-ar) .ar-text {
   }
 
   .lec-packet-dot,
-  .lec-packet-trail {
+  .lec-packet-trail,
+  .lec2-packet {
     display: none !important;
   }
 }
