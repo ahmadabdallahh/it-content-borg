@@ -10,6 +10,7 @@ import {
 
 type Mode = "mcq" | "tf" | "short";
 
+// Published UI keeps 47 / 22 / 10 / 15 and offsets 26 / 36 even though the bank holds 44 items.
 const MODES: { key: Mode; en: string; ar: string; count: number }[] = [
   { key: "mcq", en: "Multiple choice", ar: "اختيار من متعدد", count: 22 },
   { key: "tf", en: "True / False", ar: "صح / خطأ", count: 10 },
