@@ -43,6 +43,20 @@ const LECTURES = [
     metaEn: "cipher lab · formulas · homework",
     metaAr: "مختبر الشيفرة · الصيغ · الواجب",
   },
+  {
+    n: "03",
+    href: "/cyber/lecture-3",
+    stateEn: "open now",
+    stateAr: "متاح الآن",
+    en: "Classical Encryption / Decryption",
+    ar: "التشفير وفك التشفير الكلاسيكي",
+    dEn:
+      "Chapter 2: encryption types, characterization, substitution families, the Vigenère cipher, Playfair and row/multiple transposition — with worked examples.",
+    dAr:
+      "الفصل الثاني: أنواع التشفير والتوصيف وعائلات الإحلال وشيفرة فينير وبليفير وتبديل الصفوف والمتعدد — مع أمثلة محلولة.",
+    metaEn: "worked examples · 50-question quiz",
+    metaAr: "أمثلة محلولة · اختبار من ٥٠ سؤالًا",
+  },
 ];
 
 const FOCUS =
